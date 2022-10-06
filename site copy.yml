@@ -1,0 +1,7 @@
+---
+  - name: ping
+    hosts: clickhouse
+    tasks:
+    - name: Print arch
+      debug:
+       msg: "{{ ansible_architecture }}"
