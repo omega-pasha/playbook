@@ -1,6 +1,6 @@
 ---
 - name: Install Clickhouse
-  hosts: clickhouse
+  hosts: centos_ch
   handlers:
     - name: Start clickhouse service
       become: true
@@ -40,6 +40,9 @@
       failed_when: create_db.rc != 0 and create_db.rc !=82
       changed_when: create_db.rc == 0
 
+- name: Install vector
+  hosts: centos_vec
+  tasks:
     - name: Get vector distrib
       become: true
       ansible.builtin.get_url:
@@ -57,3 +60,61 @@
       ansible.builtin.service:
         name: vector
         state: restarted
+
+- name: Install Nginx
+  hosts: centos_lh
+  handlers:
+    - name: Start Nginx
+      become: true
+      command: nginx
+    - name: Reload Nginx
+      become: true
+      command: nginx -s reload 
+  tasks:
+    - name: Install epel-release
+      yum:
+        name: epel-release
+        state: latest
+      become: true
+    - name: install Nginx
+      yum:
+        name: nginx
+        state: latest
+        update_cache: yes
+      become: true
+      notify: Start Nginx
+    - name: Copy nginx config
+      become: true
+      template:
+        src: files/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        mode: 0755
+      notify: Reload Nginx
+- name: Install lighthouse
+  hosts: centos_lh
+  handlers:
+    - name: Reload Nginx
+      become: true
+      command: nginx -s reload
+  tasks:
+    - name: Install git
+      yum:
+        name: "git"
+        state: present
+        update_cache: yes
+      become: true
+    - name: clone from git
+      ansible.builtin.git:
+        repo: https://github.com/VKCOM/lighthouse.git
+        dest: "{{ document_root }}"
+        single_branch: yes
+        version: master
+      become: true
+    - name: Copy lighthouse config
+      become: true
+      template:
+        src: files/lighthouse.conf.j2
+        dest: /etc/nginx/conf.d/default.conf
+        mode: 0644
+      notify: Reload Nginx
+

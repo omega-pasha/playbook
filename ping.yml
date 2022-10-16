@@ -1,0 +1,17 @@
+---
+  - name: ping
+    hosts: centos_ch
+    tasks:
+
+    - name: ping all servers
+      ping:
+
+  - name: print ps
+    hosts: centos_lh
+    tasks:
+
+    - name: print ps
+      shell: "ps aux"
+      register: ps_out
+    - debug:
+       var: ps_out.stdout_lines 
