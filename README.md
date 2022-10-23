@@ -81,6 +81,9 @@ vector_version: "0.23.3"
 ```
 ## ссылки на роли 
 [Vector](https://github.com/omega-pasha/vector-role)
+
 [Nginx](https://github.com/omega-pasha/nginx-role)
+
 [Lighthouse](https://github.com/omega-pasha/lighthouse-role)
+
 [Clickhouse](https://github.com/omega-pasha/clickhouse-role)
