@@ -1,0 +1,5 @@
+---
+# handlers file for vector-role
+    - name: Restart Vector
+      become: true
+      service: name=vector state=restarted

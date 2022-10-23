@@ -1,0 +1,5 @@
+---
+# handlers file for lighthouse-role
+    - name: Restart Nginx
+      become: true
+      service: name=nginx state=restarted

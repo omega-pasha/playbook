@@ -1,0 +1,19 @@
+---
+  - name: clickhouse 
+    src: git@github.com:omega-pasha/clickhouse-role.git
+    scm: git
+    version: "0.0.1"
+  - name: lighthouse-role
+    src: git@github.com:omega-pasha/lighthouse-role.git 
+    scm: git
+    version: "0.0.1"
+  - name: nginx-role
+    src: git@github.com:omega-pasha/nginx-role.git
+    scm: git
+    version: "0.0.1"
+  - name: vector-role
+    src: git@github.com:omega-pasha/vector-role.git
+    scm: git
+    version: "0.0.1"
+
+    

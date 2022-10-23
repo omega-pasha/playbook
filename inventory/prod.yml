@@ -2,18 +2,18 @@
 clickhouse:
   hosts:
     centos_ch:
-      ansible_host: 62.84.127.212
+      ansible_host: 84.201.131.183
       ansible_user: pavel
       ansible_ssh_private_key_file: ~/.ssh/pomortest
 lighthouse:
   hosts:
     centos_lh:
-      ansible_host: 51.250.93.32
+      ansible_host: 84.252.129.156
       ansible_user: pavel
       ansible_ssh_private_key_file: ~/.ssh/pomortest
 vector:
   hosts:
     centos_vec:
-      ansible_host: 51.250.1.224
+      ansible_host: 51.250.91.168
       ansible_user: pavel
       ansible_ssh_private_key_file: ~/.ssh/pomortest
