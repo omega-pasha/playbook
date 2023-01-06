@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: clickhouse  # if absent directory name hosting role is used instead
+  namespace: netology
   author: your name
   description: your role description
   company: your company (optional)

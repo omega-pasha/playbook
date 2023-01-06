@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../Programming"
+		},
+		{
+			"path": "../../../../../docker_learn"
+		},
+		{
+			"path": "../../../../../terraform_learn"
+		},
+		{
+			"path": "../../../.."
+		}
+	],
+	"settings": {
+		"files.autoSave": "afterDelay"
+	}
+}
